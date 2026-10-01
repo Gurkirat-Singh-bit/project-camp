@@ -1,5 +1,5 @@
 {
-  "name": "project-camp-2",
+  "name": "project-camp",
   "private": true,
   "scripts": {
     "build": "turbo run build",
