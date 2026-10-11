@@ -1,6 +1,11 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormControl, FormGroup, ControlLabel, HelpBlock } from "./form";
+import {
+  FormControl,
+  FormGroup,
+  ControlLabel,
+  HelpBlock,
+} from "../../src/components/form";
 
 const meta: Meta = {
   title: "Components/Form",
@@ -24,11 +29,7 @@ export const Default: StoryObj = {
 
       <FormGroup>
         <ControlLabel htmlFor="email">Email address</ControlLabel>
-        <FormControl
-          id="email"
-          placeholder="name@example.com"
-          type="email"
-        />
+        <FormControl id="email" placeholder="name@example.com" type="email" />
       </FormGroup>
 
       <FormGroup>

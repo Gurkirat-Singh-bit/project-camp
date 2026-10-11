@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Panel } from "./panel";
+import { Panel } from "../../src/components/panel";
 
 const meta: Meta<typeof Panel> = {
   title: "Components/Panel",

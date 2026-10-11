@@ -1,0 +1,12 @@
+.camp-example-component {
+  --camp-panel-offset: 68px;
+  position: relative;
+  min-height: 340px;
+  padding: 24px;
+}
+.camp-example-logo {
+  width: fit-content;
+  padding: 16px;
+  color: #f5f6f7;
+  background: #0a0a23;
+}

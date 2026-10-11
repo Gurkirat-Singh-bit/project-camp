@@ -1,0 +1,41 @@
+:root {
+  --camp-navy: var(--gray90);
+  --camp-light: var(--gray05);
+  --camp-search: var(--gray75);
+  --camp-muted: var(--gray15);
+  --camp-focus: var(--blue50);
+}
+
+@theme inline {
+  --color-navy: var(--camp-navy);
+  --color-light: var(--camp-light);
+  --color-search: var(--camp-search);
+  --color-muted: var(--camp-muted);
+  --color-focus: var(--camp-focus);
+  --font-sans: Lato, Arial, Helvetica, sans-serif;
+}
+
+@theme {
+  --breakpoint-compact: 37.5625rem;
+}
+
+@layer components {
+  .camp-ui {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .camp-ui,
+  .camp-ui *,
+  .camp-ui *::before,
+  .camp-ui *::after {
+    box-sizing: border-box;
+  }
+
+  .camp-ui:focus-visible,
+  .camp-ui :focus-visible {
+    outline: 3px solid var(--camp-focus);
+    outline-offset: -3px;
+  }
+}

@@ -33,3 +33,9 @@ Build static Storybook:
 ```bash
 pnpm --filter @repo/ui build-storybook
 ```
+
+Navigation components are available through `@repo/ui/navigation-menu`, `@repo/ui/search-input`, `@repo/ui/language-switcher`, `@repo/ui/user-menu`, and `@repo/ui/logo`. Import `@repo/ui/styles.css` once in your app.
+
+`LanguageSwitcher` accepts language options, the current value, and an `onChange` callback. Translation loading, locale persistence, routing, and document language updates belong to the larger i18n effort.
+
+Stories live in `stories/<component>/<component>.stories.tsx`, separate from component source files.
