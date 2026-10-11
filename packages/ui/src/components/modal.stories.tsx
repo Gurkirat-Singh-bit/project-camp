@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Modal } from "../../src/components/modal";
-import { Button } from "../../src/components/button";
+import { Modal } from "./modal";
+import { Button } from "./button";
 
 const ModalWrapper = ({
   size,
@@ -14,18 +14,10 @@ const ModalWrapper = ({
 
   return (
     <div>
-      <Button
-        onClick={() => setOpen(true)}
-        variant={variant === "danger" ? "danger" : "primary"}
-      >
+      <Button onClick={() => setOpen(true)} variant={variant === "danger" ? "danger" : "primary"}>
         Open Modal ({variant ?? "default"})
       </Button>
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        size={size}
-        variant={variant}
-      >
+      <Modal open={open} onClose={() => setOpen(false)} size={size} variant={variant}>
         <Modal.Header showCloseButton>
           <span className="font-bold text-lg">Example Modal Title</span>
         </Modal.Header>
@@ -34,8 +26,7 @@ const ModalWrapper = ({
             This modal is rendered using the freeCodeCamp UI component library.
           </p>
           <p className="my-2">
-            It includes accessible focus trapping, keyboard dismiss, and
-            responsive layout.
+            It includes accessible focus trapping, keyboard dismiss, and responsive layout.
           </p>
         </Modal.Body>
         <Modal.Footer>
