@@ -1,5 +1,4 @@
 .camp-example-component {
-  --camp-panel-offset: 68px;
   position: relative;
   min-height: 340px;
   padding: 24px;

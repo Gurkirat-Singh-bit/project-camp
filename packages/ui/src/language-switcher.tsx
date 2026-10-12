@@ -1,8 +1,8 @@
 "use client";
 
-import { listItemStyles } from "./component-styles.js";
-import { Disclosure } from "./disclosure.js";
-import { Icon } from "./icons.js";
+import { listItemStyles } from "./component-styles";
+import { Disclosure } from "./disclosure";
+import { Icon } from "./icons";
 
 export type LanguageOption = { code: string; label: string };
 export type LanguageSwitcherProps = {

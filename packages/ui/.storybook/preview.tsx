@@ -5,8 +5,10 @@ import "./preview.css";
 
 const preview: Preview = {
   decorators: [
-    (Story) => (
-      <div className="light-palette p-6 font-sans text-foreground-primary bg-background-primary min-h-screen">
+    (Story, context) => (
+      <div
+        className={`light-palette font-sans text-foreground-primary bg-background-primary min-h-screen ${context.parameters.layout === "fullscreen" ? "" : "p-6"}`}
+      >
         <Story />
       </div>
     ),

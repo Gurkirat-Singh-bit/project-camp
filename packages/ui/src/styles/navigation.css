@@ -39,3 +39,43 @@
     outline-offset: -3px;
   }
 }
+
+@theme {
+  --breakpoint-desktop: 61.25rem;
+}
+
+/* One search field lives inside the menu disclosure, including on mobile. */
+.camp-header-search {
+  display: none;
+}
+.camp-header .camp-header-search {
+  display: block;
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: 6px;
+  inline-size: calc((100% - 260px - 6rem) / 2);
+}
+@media (width < 61.25rem) {
+  .camp-header .camp-header-search {
+    display: none;
+    inset-inline-start: 0;
+    inset-block-start: 100%;
+    inline-size: 100%;
+    padding: 6px 1rem;
+    background: var(--camp-navy);
+  }
+  .camp-header .camp-navigation[data-open="true"] > .camp-header-search {
+    display: block;
+  }
+}
+
+@media (width < 37.5625rem) {
+  .camp-header-controls > .camp-disclosure > button,
+  .camp-header-controls > a {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+}

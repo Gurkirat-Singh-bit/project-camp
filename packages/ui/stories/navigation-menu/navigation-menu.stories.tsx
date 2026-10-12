@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
-import { NavigationMenu } from "../../src/navigation-menu.js";
+import { expect, userEvent, within } from "@storybook/test";
+import { NavigationMenu } from "../../src/navigation-menu";
 
 const meta = {
   title: "Navigation/NavigationMenu",
@@ -24,9 +24,11 @@ type Story = StoryObj<typeof meta>;
 export const Closed: Story = {};
 export const Open: Story = {
   play: async ({ canvasElement }) => {
-    await userEvent.click(
-      within(canvasElement).getByRole("button", { name: "Menu" }),
-    );
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Menu" });
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute("aria-expanded", "true");
+    await expect(canvas.getByRole("list")).toBeVisible();
   },
 };
 export const LongList: Story = {
@@ -51,4 +53,46 @@ export const DisabledAction: Story = {
     ],
   },
   play: Open.play,
+};
+
+export const Dismissal: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Menu" });
+    await userEvent.click(trigger);
+    await userEvent.keyboard("{Escape}");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(trigger).toHaveFocus();
+    await userEvent.click(trigger);
+    await userEvent.click(canvasElement);
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await userEvent.click(trigger);
+    await userEvent.click(
+      canvas.getByRole("link", { name: "Explore projects" }),
+    );
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(trigger).toHaveFocus();
+  },
+};
+
+export const ViewportPlacement: Story = {
+  args: LongList.args,
+  decorators: [
+    (Story) => (
+      <div style={{ position: "fixed", right: 8, top: "65vh" }}>
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "Menu" }));
+    const panel = canvas.getByRole("list").parentElement!;
+    const bounds = panel.getBoundingClientRect();
+    const viewport = canvasElement.ownerDocument.defaultView!;
+    await expect(bounds.left).toBeGreaterThanOrEqual(0);
+    await expect(bounds.right).toBeLessThanOrEqual(viewport.innerWidth);
+    await expect(bounds.top).toBeGreaterThanOrEqual(0);
+    await expect(bounds.bottom).toBeLessThanOrEqual(viewport.innerHeight);
+  },
 };

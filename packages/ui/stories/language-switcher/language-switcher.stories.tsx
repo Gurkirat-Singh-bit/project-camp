@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
+import { expect, userEvent, within } from "@storybook/test";
 import {
   LanguageSwitcher,
   type LanguageSwitcherProps,
-} from "../../src/language-switcher.js";
+} from "../../src/language-switcher";
 
 function Example(props: LanguageSwitcherProps) {
   const [value, setValue] = useState(props.value);
@@ -52,4 +52,19 @@ export const LongLabels: Story = {
     ],
   },
   play: Open.play,
+};
+
+export const SelectLanguage: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "Change language" });
+    await userEvent.click(trigger);
+    await userEvent.click(canvas.getByRole("button", { name: "Español" }));
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(trigger).toHaveFocus();
+    await userEvent.click(trigger);
+    await expect(
+      canvas.getByRole("button", { name: "Español" }),
+    ).toHaveAttribute("aria-current", "true");
+  },
 };

@@ -1,8 +1,9 @@
 "use client";
 
-import { listItemStyles } from "./component-styles.js";
-import { Disclosure } from "./disclosure.js";
-import { Icon } from "./icons.js";
+import type { ReactNode } from "react";
+import { listItemStyles } from "./component-styles";
+import { Disclosure } from "./disclosure";
+import { Icon } from "./icons";
 
 export type NavigationItem = { id: string; label: string } & (
   | { href: string; external?: boolean; onSelect?: never; disabled?: never }
@@ -11,18 +12,21 @@ export type NavigationItem = { id: string; label: string } & (
 
 export type NavigationMenuProps = {
   items: NavigationItem[];
+  search?: ReactNode;
   label?: string;
   externalLinkLabel?: string;
 };
 
 export function NavigationMenu({
   items,
+  search,
   label = "Menu",
   externalLinkLabel = "Opens in a new tab",
 }: NavigationMenuProps) {
   return (
     <Disclosure
       label={label}
+      search={search}
       className="camp-navigation"
       trigger={
         <>

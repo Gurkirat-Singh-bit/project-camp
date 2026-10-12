@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserMenu } from "../../src/user-menu.js";
+import { UserMenu } from "../../src/user-menu";
 
 const meta = {
   title: "Navigation/UserMenu",

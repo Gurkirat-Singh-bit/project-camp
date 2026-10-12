@@ -60,3 +60,4 @@ export {
 export { SearchInput, type SearchInputProps } from "./search-input";
 export { UserMenu, type HeaderUser, type UserMenuProps } from "./user-menu";
 export { Logo } from "./logo";
+export { Header, type HeaderProps as SiteHeaderProps } from "./header";

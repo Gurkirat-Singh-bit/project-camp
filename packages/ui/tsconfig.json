@@ -2,9 +2,7 @@
   "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
-    "strictNullChecks": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler"
+    "strictNullChecks": true
   },
   "include": ["src", "stories", ".storybook"],
   "exclude": ["node_modules", "dist"]
