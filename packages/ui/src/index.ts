@@ -51,13 +51,20 @@ export {
   NavigationMenu,
   type NavigationItem,
   type NavigationMenuProps,
-} from "./navigation-menu";
+} from "./components/navigation-menu";
 export {
   LanguageSwitcher,
   type LanguageOption,
   type LanguageSwitcherProps,
-} from "./language-switcher";
-export { SearchInput, type SearchInputProps } from "./search-input";
-export { UserMenu, type HeaderUser, type UserMenuProps } from "./user-menu";
-export { Logo } from "./logo";
-export { Header, type HeaderProps as SiteHeaderProps } from "./header";
+} from "./components/language-switcher";
+export { SearchInput, type SearchInputProps } from "./components/search-input";
+export {
+  UserMenu,
+  type HeaderUser,
+  type UserMenuProps,
+} from "./components/user-menu";
+export { Logo } from "./components/logo";
+export {
+  Header,
+  type HeaderProps as SiteHeaderProps,
+} from "./components/header";

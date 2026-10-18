@@ -3,7 +3,6 @@
 @import "@freecodecamp/ui/dist/base.css" layer(base);
 @import "tailwindcss";
 @import "./navigation.css";
-@source "../../stories";
 
 :root {
   --font-sans: Lato, sans-serif;

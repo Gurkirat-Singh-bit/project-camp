@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UserMenu } from "../../src/user-menu";
+import { UserMenu } from "./user-menu";
 
 const meta = {
   title: "Navigation/UserMenu",
@@ -7,7 +7,7 @@ const meta = {
   args: { signInHref: "#sign-in" },
   decorators: [
     (Story) => (
-      <div className="camp-example-component">
+      <div className="relative min-h-[340px] p-6">
         <Story />
       </div>
     ),

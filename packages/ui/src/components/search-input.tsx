@@ -1,7 +1,7 @@
 "use client";
 
 import { FormControl, ControlLabel } from "@freecodecamp/ui";
-import { cn } from "./lib/utils";
+import { cn } from "../lib/utils";
 import { useId, type ComponentProps } from "react";
 import { Icon } from "./icons";
 

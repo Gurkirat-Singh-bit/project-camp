@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
-import { NavigationMenu } from "../../src/navigation-menu";
+import { expect, userEvent, within } from "storybook/test";
+import { NavigationMenu } from "./navigation-menu";
 
 const meta = {
   title: "Navigation/NavigationMenu",
@@ -13,7 +13,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div className="camp-example-component">
+      <div className="relative min-h-[340px] p-6">
         <Story />
       </div>
     ),

@@ -1,6 +1,6 @@
-import { expect, within } from "@storybook/test";
+import { expect, within } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SearchInput } from "../../src/search-input";
+import { SearchInput } from "./search-input";
 
 const meta = {
   title: "Navigation/SearchInput",
@@ -8,7 +8,7 @@ const meta = {
   args: { label: "Search projects", placeholder: "Search projects" },
   decorators: [
     (Story) => (
-      <div className="camp-example-component">
+      <div className="relative min-h-[340px] p-6">
         <Story />
       </div>
     ),

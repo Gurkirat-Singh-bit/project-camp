@@ -1,10 +1,11 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
-import { Header, type HeaderProps } from "../../src/header";
-import { LanguageSwitcher } from "../../src/language-switcher";
-import { SearchInput } from "../../src/search-input";
-import { UserMenu } from "../../src/user-menu";
+import { expect, userEvent, within } from "storybook/test";
+import { MINIMAL_VIEWPORTS } from "storybook/viewport";
+import { Header, type HeaderProps } from "./header";
+import { LanguageSwitcher } from "./language-switcher";
+import { SearchInput } from "./search-input";
+import { UserMenu } from "./user-menu";
 
 function Example(props: HeaderProps & { signedIn?: boolean }) {
   const [language, setLanguage] = useState("en");
@@ -59,16 +60,11 @@ const meta = {
       { id: "guide", label: "Contribution guide", href: "#guide" },
     ],
   },
-  parameters: { layout: "fullscreen", viewport: { defaultViewport: "reset" } },
-  render: (args) => <Example {...args} />,
-} satisfies Meta<typeof Header>;
-export default meta;
-type Story = StoryObj<typeof meta>;
-export const Desktop: Story = {
   parameters: {
+    layout: "fullscreen",
     viewport: {
-      defaultViewport: "desktop",
-      viewports: {
+      options: {
+        ...MINIMAL_VIEWPORTS,
         desktop: {
           name: "Desktop",
           styles: { width: "1440px", height: "900px" },
@@ -77,13 +73,19 @@ export const Desktop: Story = {
       },
     },
   },
+  render: (args) => <Example {...args} />,
+} satisfies Meta<typeof Header>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Desktop: Story = {
+  globals: { viewport: { value: "desktop", isRotated: false } },
 };
 export const SignedOut: Story = {};
 export const SignedIn: Story = {
   render: (args) => <Example {...args} signedIn />,
 };
 export const Mobile: Story = {
-  parameters: { viewport: { defaultViewport: "mobile1" } },
+  globals: { viewport: { value: "mobile1", isRotated: false } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole("button", { name: "Menu" });

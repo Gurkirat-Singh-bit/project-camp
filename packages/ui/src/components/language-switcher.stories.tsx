@@ -1,10 +1,10 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 import {
   LanguageSwitcher,
   type LanguageSwitcherProps,
-} from "../../src/language-switcher";
+} from "./language-switcher";
 
 function Example(props: LanguageSwitcherProps) {
   const [value, setValue] = useState(props.value);
@@ -25,7 +25,7 @@ const meta = {
   render: (args) => <Example {...args} />,
   decorators: [
     (Story) => (
-      <div className="camp-example-component">
+      <div className="relative min-h-[340px] p-6">
         <Story />
       </div>
     ),
