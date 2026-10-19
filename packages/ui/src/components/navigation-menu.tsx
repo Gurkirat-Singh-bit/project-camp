@@ -1,9 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { Menu } from "lucide-react";
 import { listItemStyles } from "./component-styles";
 import { Disclosure } from "./disclosure";
-import { Icon } from "./icons";
 
 export type NavigationItem = { id: string; label: string } & (
   | { href: string; external?: boolean; onSelect?: never; disabled?: never }
@@ -32,7 +32,12 @@ export function NavigationMenu({
         <>
           <span className="hidden compact:inline">{label}</span>
           <span className="block compact:hidden [&_svg]:block">
-            <Icon name="menu" />
+            <Menu
+              size={24}
+              strokeWidth={1.5}
+              aria-hidden="true"
+              focusable="false"
+            />
           </span>
         </>
       }

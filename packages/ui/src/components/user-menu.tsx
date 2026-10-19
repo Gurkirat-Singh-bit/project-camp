@@ -1,9 +1,9 @@
 "use client";
 
 import { Button, Image } from "@freecodecamp/ui";
+import { User } from "lucide-react";
 import { controlStyles } from "./component-styles";
 import { useState } from "react";
-import { Icon } from "./icons";
 
 export type HeaderUser = {
   name: string;
@@ -34,7 +34,12 @@ export function UserMenu({
       >
         <span className="hidden compact:inline">{signInLabel}</span>
         <span className="block compact:hidden [&_svg]:block">
-          <Icon name="user" />
+          <User
+            size={24}
+            strokeWidth={1.5}
+            aria-hidden="true"
+            focusable="false"
+          />
         </span>
       </Button>
     );
@@ -54,7 +59,12 @@ export function UserMenu({
           onError={() => setFailedImage(user.imageUrl)}
         />
       ) : (
-        <Icon name="user" />
+        <User
+          size={24}
+          strokeWidth={1.5}
+          aria-hidden="true"
+          focusable="false"
+        />
       )}
     </Button>
   );

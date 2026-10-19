@@ -1,8 +1,8 @@
 "use client";
 
+import { Globe } from "lucide-react";
 import { listItemStyles } from "./component-styles";
 import { Disclosure } from "./disclosure";
-import { Icon } from "./icons";
 
 export type LanguageOption = { code: string; label: string };
 export type LanguageSwitcherProps = {
@@ -21,7 +21,14 @@ export function LanguageSwitcher({
   return (
     <Disclosure
       label={label}
-      trigger={<Icon name="globe" />}
+      trigger={
+        <Globe
+          size={24}
+          strokeWidth={1.5}
+          aria-hidden="true"
+          focusable="false"
+        />
+      }
       className="camp-language"
     >
       <ul className="list-none m-0 p-0">

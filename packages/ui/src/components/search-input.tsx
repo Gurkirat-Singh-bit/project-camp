@@ -1,9 +1,9 @@
 "use client";
 
 import { FormControl, ControlLabel } from "@freecodecamp/ui";
+import { Search } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useId, type ComponentProps } from "react";
-import { Icon } from "./icons";
 
 export type SearchInputProps = Omit<ComponentProps<"input">, "type"> & {
   label: string;
@@ -30,7 +30,12 @@ export function SearchInput({
       <ControlLabel srOnly htmlFor={inputId}>
         {label}
       </ControlLabel>
-      <Icon name="search" />
+      <Search
+        size={24}
+        strokeWidth={1.5}
+        aria-hidden="true"
+        focusable="false"
+      />
       <FormControl
         {...props}
         id={inputId}
